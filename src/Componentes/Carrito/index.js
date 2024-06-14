@@ -1,7 +1,6 @@
 import React, {useContext} from 'react'
 import { DataContext } from '../../Context/Dataprovider';
-import axios from 'axios';
-import cors from 'cors';
+//import axios from 'axios';
 
 export const Carrito = () => {
   const value = useContext(DataContext);
@@ -46,7 +45,7 @@ export const Carrito = () => {
     }
   }
 
-  const pagarAxios = async(total) => {
+//   const pagarAxios = async(total) => {
     // const config = {
     //     url: 'https://webpay3gint.transbank.cl/rswebpaytransaction/api/webpay/v1.2/transactions',
     //     method: 'POST',
@@ -67,59 +66,59 @@ export const Carrito = () => {
     //     alert(response.data);
     // }
 
-    const url = 'https://webpay3gint.transbank.cl/rswebpaytransaction/api/webpay/v1.2/transactions'
-    const data = {
-        buy_order: "ordenCompra12345678",
-        itemssession_id: "sesion1234557545",
-        amount: total,
-        return_url: "http://www.comercio.cl/webpay/retorno" 
-    };
-    axios
-    .post(url, data, {
-        mode: "no-cors",
-        headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json;charset=UTF-8",
-        'Access-Control-Allow-Origin': '*',
-        "bk-Api-Key-Id": "597055555532",
-        "Tbk-Api-Key-Secret": "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
-        },
-    })
-    .then(({data}) => {
-        console.log(data);
-    });
-  }
+//     const url = 'https://webpay3gint.transbank.cl/rswebpaytransaction/api/webpay/v1.2/transactions'
+//     const data = {
+//         buy_order: "ordenCompra12345678",
+//         itemssession_id: "sesion1234557545",
+//         amount: total,
+//         return_url: "http://www.comercio.cl/webpay/retorno" 
+//     };
+//     axios
+//     .post(url, data, {
+//         mode: "no-cors",
+//         headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json;charset=UTF-8",
+//         'Access-Control-Allow-Origin': '*',
+//         "bk-Api-Key-Id": "597055555532",
+//         "Tbk-Api-Key-Secret": "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
+//         },
+//     })
+//     .then(({data}) => {
+//         console.log(data);
+//     });
+//   }
 
-  const pagarFetch = async(total) => {
+//   const pagarFetch = async(total) => {
     
-    //alert(`entro a pagar  ${total}`)
+//     //alert(`entro a pagar  ${total}`)
         
-    try {
-        const url = "https://webpay3gint.transbank.cl/rswebpaytransaction/api/webpay/v1.2/transactions";
-        const parametros = {
-            method: 'POST',
-            mode: "no-cors",
-            headers: new Headers({
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                "bk-Api-Key-Id": "597055555532",
-                "Tbk-Api-Key-Secret": "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
-              }),
-            body: JSON.stringify({
-                buy_order: "ordenCompra12345678",
-                session_id: "sesion1234557545",
-                amount: total,
-                return_url: "http://www.comercio.cl/webpay/retorno" 
-            })
-        }
-        const result = await fetch(url, parametros);
-        console.log(result.text());
-    } catch (error) {
-        console.log(error);
-    }   
+//     try {
+//         const url = "https://webpay3gint.transbank.cl/rswebpaytransaction/api/webpay/v1.2/transactions";
+//         const parametros = {
+//             method: 'POST',
+//             mode: "no-cors",
+//             headers: new Headers({
+//                 'Content-Type': 'application/json',
+//                 'Access-Control-Allow-Origin': '*',
+//                 "bk-Api-Key-Id": "597055555532",
+//                 "Tbk-Api-Key-Secret": "579B532A7440BB0C9079DED94D31EA1615BACEB56610332264630D42D0A36B1C"
+//               }),
+//             body: JSON.stringify({
+//                 buy_order: "ordenCompra12345678",
+//                 session_id: "sesion1234557545",
+//                 amount: total,
+//                 return_url: "http://www.comercio.cl/webpay/retorno" 
+//             })
+//         }
+//         const result = await fetch(url, parametros);
+//         console.log(result.text());
+//     } catch (error) {
+//         console.log(error);
+//     }   
     
    
-  }
+//   }
 
   const pagarFetchJson = async(total) => {
     
