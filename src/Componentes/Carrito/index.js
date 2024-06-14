@@ -129,6 +129,7 @@ export const Carrito = () => {
         return_url: "http://www.comercio.cl/webpay/retorno" 
       };
       const options = {
+        mode: "no-cors",
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
